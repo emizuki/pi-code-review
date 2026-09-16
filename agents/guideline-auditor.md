@@ -2,6 +2,7 @@
 name: guideline-auditor
 description: Checks a diff against the repository's own written rules, quoting the rule it relies on
 suggest: false
+inheritProjectContext: false
 tools: read, grep, find, ls
 ---
 

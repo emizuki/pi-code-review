@@ -2,6 +2,7 @@
 name: bug-finder
 description: Finds defects introduced by a diff, each with the input that triggers it
 suggest: false
+inheritProjectContext: false
 tools: read, grep, find, ls
 ---
 

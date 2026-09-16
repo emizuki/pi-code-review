@@ -2,6 +2,7 @@
 name: history-analyst
 description: Reads the history of the changed lines for warnings the diff alone cannot show
 suggest: false
+inheritProjectContext: false
 tools: read, grep, find, ls, bash
 ---
 
