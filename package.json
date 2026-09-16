@@ -1,0 +1,9 @@
+{
+  "name": "pi-code-review",
+  "version": "0.1.0",
+  "description": "Parallel pull-request review for pi with independent confidence scoring: four auditors, one scorer per finding, nothing below the threshold reported.",
+  "private": true,
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "pi": { "prompts": ["./prompts"] }
+}
