@@ -21,5 +21,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "pi": { "prompts": ["./prompts"] }
+  "pi": {
+    "prompts": ["./prompts"],
+    "subagents": {
+      "agents": ["./agents"]
+    }
+  }
 }

@@ -19,44 +19,19 @@ for pi on top of `pi-subagents`.
 Install both packages:
 
 ```bash
-set -euo pipefail
 pi install npm:@emizuki/pi-subagents
 pi install npm:@emizuki/pi-code-review
 ```
 
-Agents are not a pi resource type, so link them from Pi's managed npm package. This installation
-refuses to overwrite a different global agent with the same name.
+That is the complete setup. `pi-subagents` discovers the review agents declared by this package,
+and Pi loads the packaged `/code-review` prompt; no copy or symlink step is needed.
+
+To track both development branches directly instead:
 
 ```bash
-set -euo pipefail
-agent_root="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
-source_dir="$agent_root/npm/node_modules/@emizuki/pi-code-review/agents"
-dest_dir="$agent_root/agents"
-
-test -d "$source_dir"
-mkdir -p "$dest_dir"
-
-for source in "$source_dir"/*.md; do
-  dest="$dest_dir/$(basename "$source")"
-  if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$source" ]; then
-    continue
-  fi
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    printf 'Refusing to replace existing agent: %s\n' "$dest" >&2
-    exit 1
-  fi
-done
-
-for source in "$source_dir"/*.md; do
-  dest="$dest_dir/$(basename "$source")"
-  [ -L "$dest" ] || ln -s "$source" "$dest"
-done
+pi install git:github.com/emizuki/pi-subagents
+pi install git:github.com/emizuki/pi-code-review
 ```
-
-Run `/reload` after adding or updating the links.
-
-To track both development branches directly instead, install their `git:github.com/emizuki/...`
-packages and use `$agent_root/git/github.com/emizuki/pi-code-review/agents` as `source_dir`.
 
 ## Safe use
 
