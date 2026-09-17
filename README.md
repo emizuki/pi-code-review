@@ -24,7 +24,8 @@ pi install npm:@emizuki/pi-code-review
 ```
 
 That is the complete setup. `pi-subagents` discovers the review agents declared by this package,
-and Pi loads the packaged `/code-review` prompt; no copy or symlink step is needed.
+and Pi loads the packaged `/code-review` prompt; no copy or symlink step is needed. Automatic
+agent discovery requires `@emizuki/pi-subagents` 0.3.0 or newer.
 
 Install `pi-code-review` at user scope, as shown above. Package agents follow their package's own
 install scope, and this workflow dispatches every auditor at the default `agentScope: "user"`, so a
