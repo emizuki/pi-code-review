@@ -20,17 +20,17 @@ Install both packages:
 
 ```bash
 set -euo pipefail
-pi install git:github.com/emizuki/pi-subagents
-pi install git:github.com/emizuki/pi-code-review
+pi install npm:@emizuki/pi-subagents
+pi install npm:@emizuki/pi-code-review
 ```
 
-Agents are not a pi resource type, so link them from pi's managed clone. This installation refuses
-to overwrite a different global agent with the same name.
+Agents are not a pi resource type, so link them from Pi's managed npm package. This installation
+refuses to overwrite a different global agent with the same name.
 
 ```bash
 set -euo pipefail
 agent_root="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
-source_dir="$agent_root/git/github.com/emizuki/pi-code-review/agents"
+source_dir="$agent_root/npm/node_modules/@emizuki/pi-code-review/agents"
 dest_dir="$agent_root/agents"
 
 test -d "$source_dir"
@@ -54,6 +54,9 @@ done
 ```
 
 Run `/reload` after adding or updating the links.
+
+To track both development branches directly instead, install their `git:github.com/emizuki/...`
+packages and use `$agent_root/git/github.com/emizuki/pi-code-review/agents` as `source_dir`.
 
 ## Safe use
 

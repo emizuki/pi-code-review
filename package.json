@@ -1,9 +1,25 @@
 {
-  "name": "pi-code-review",
+  "name": "@emizuki/pi-code-review",
   "version": "0.1.0",
   "description": "Parallel pull-request review for pi with independent confidence scoring: four auditors, one scorer per finding, nothing below the threshold reported.",
-  "private": true,
   "keywords": ["pi-package"],
   "license": "MIT",
+  "files": [
+    "prompts",
+    "agents",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emizuki/pi-code-review.git"
+  },
+  "homepage": "https://github.com/emizuki/pi-code-review#readme",
+  "bugs": {
+    "url": "https://github.com/emizuki/pi-code-review/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "pi": { "prompts": ["./prompts"] }
 }
