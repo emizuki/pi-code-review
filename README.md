@@ -26,6 +26,10 @@ pi install npm:@emizuki/pi-code-review
 That is the complete setup. `pi-subagents` discovers the review agents declared by this package,
 and Pi loads the packaged `/code-review` prompt; no copy or symlink step is needed.
 
+Install `pi-code-review` at user scope, as shown above. Package agents follow their package's own
+install scope, and this workflow dispatches every auditor at the default `agentScope: "user"`, so a
+project-scope install (`pi install --local`) would leave its five agents undiscoverable.
+
 To track both development branches directly instead:
 
 ```bash
