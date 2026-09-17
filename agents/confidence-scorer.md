@@ -3,6 +3,7 @@ name: confidence-scorer
 description: Scores one finding from 0 to 100 on the strength of its evidence, having verified it against the code
 suggest: false
 inheritProjectContext: false
+defaultContext: fresh
 tools: read, grep, find, ls, bash
 ---
 
